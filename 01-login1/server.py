@@ -39,12 +39,18 @@ def home():
         pretty=json.dumps(session.get("user"), indent=4),
     )
 
+@app.route("/salut")
+def salut():
+    return render_template("salut.html",
+                           session=session.get("user"),
+                           pretty=json.dumps(session.get("user"), indent=4),
+)
 
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
-    return redirect("/")
+    return redirect("/salut")
 
 
 @app.route("/login")
@@ -72,4 +78,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
+    app.run(host="0.0.0.0", port=env.get("PORT", 5000))
