@@ -13,12 +13,13 @@
     
     <main>
         <section class="vpn-status">
-            <h2>VPN Status</h2>
             {% if session %}
-                <p>Status: Connected</p>
+                <button id="connect-btn">Connect</button>
+                <button id="disconnect-btn">Disconnect</button>
                 <p>User: {{ session.userinfo.name }}</p>
                 <p><a href="/logout" id="logout-btn">Logout</a></p>
             {% else %}
+                <h2>VPN Status</h2>
                 <p>Status: Disconnected</p>
                 <p><a href="/login" id="login-btn">Login</a></p>
             {% endif %}
@@ -28,7 +29,22 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Your Company</p>
+        <p>&copy; 2023 Kernel Killers</p>
     </footer>
+    <script>
+        document.getElementById("connect-btn").addEventListener("click", function () {
+            // Make an AJAX request to the /connect endpoint
+            fetch("/connect", { method: "POST" })
+                .then(response => response.text())
+                .then(message => console.log(message));
+        });
+    
+        document.getElementById("disconnect-btn").addEventListener("click", function () {
+            // Make an AJAX request to the /disconnect endpoint
+            fetch("/disconnect", { method: "POST" })
+                .then(response => response.text())
+                .then(message => console.log(message));
+        });
+    </script>
 </body>
 </html>
