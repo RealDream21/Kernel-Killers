@@ -28,13 +28,25 @@ def create_clients():
     return clients
 
 def main():
-    writeFile = open("wg0.conf", "w")
+    writeFile = open("server.conf", "w")
+    writeFile2 = open("client.conf", "w")
     clients = create_clients()
     for client in clients:
         writeFile.write("[Peer]\n")
         writeFile.write(f"PublicKey = {client.PublicKey}\n")
         writeFile.write(f"AllowedIPs = {client.Address}\n")
         writeFile.write("\n")
+
+        writeFile2.write("[Interface]\n")
+        writeFile2.write(f"PublicKey = {client.PublicKey}\n")
+        writeFile2.write(f"Address = {client.Address}\n")
+        writeFile2.write("\n")
+
+        writeFile2.write("[Peer]\n")
+        writeFile2.write(f"PublicKey = {client.PublicKey}\n")
+        writeFile2.write(f"AllowedIPs = 0.0.0.0/0\n")
+        writeFile2.write(f"Endpoint = 34.155.214.0:51820")
+        writeFile2.write("\n\n\n\n\n\n\n")
     writeFile.close()
         
 main()
