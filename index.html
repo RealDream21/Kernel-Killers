@@ -9,3 +9,15 @@
     
 </body>
 </html>
+
+PostUp = ufw route allow in on wg0 out on enp0s3
+PostUp = iptables -t nat -I POSTROUTING -o enp0s3 -j MASQUERADE
+PostUp = ip6tables -t nat -I POSTROUTING -o enp0s3 -j MASQUERADE
+PreDown = ufw route delete allow in on wg0 out on enp0s3
+PreDown = iptables -t nat -D POSTROUTING -o enp0s3 -j MASQUERADE
+PreDown = ip6tables -t nat -D POSTROUTING -o enp0s3 -j MASQUERADE
+
+PostUp = ip rule add table 200 from 192.168.239.129
+PostUp = ip route add table 200 default via 192.169.239.128
+PreDown = ip rule delete table 200 from 192.168.239.129
+PreDown = ip route delete table 200 default via 192.169.239.128
