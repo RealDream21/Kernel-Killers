@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>VPN Dashboard</h1>
+    </header>
+    
+    <main>
+        <section class="vpn-status">
+            <h2>VPN Status</h2>
+            {% if session %}
+                <p>Status: Connected</p>
+                <p>User: {{ session.userinfo.name }}</p>
+                <p><a href="/logout" id="logout-btn">Logout</a></p>
+            {% else %}
+                <p>Status: Disconnected</p>
+                <p><a href="/login" id="login-btn">Login</a></p>
+            {% endif %}
+        </section>
+        
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
+</html>
