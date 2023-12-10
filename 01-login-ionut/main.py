@@ -14,11 +14,17 @@ from flask import Flask, redirect, render_template, session, url_for
 connections = []
 
 def allocate_and_get_connection():
-    if(len(connections) == 0 or session["connection"] != None):
-        return None
-    connection = connections.pop()
-    print("Retrieved connection")
-    return connection
+    if "connection" not in session or session["connection"] is None:
+        if len(connections) == 0:
+            return None
+        connection = connections.pop()
+        print("Retrieved connection")
+        session["connection"] = connection
+        return connection
+    else:
+        return session["connection"]
+
+
 def release_connection(connection):
     connections.append(connection)
     session["connection"] = None
@@ -88,10 +94,10 @@ def logout():
 def connect_user():
     # Retrieve connection details from WireGuard
     connection = allocate_and_get_connection()
-    #store the connection in local storage
-    if(connection == None):
+    
+    if connection is None:
         return "No connections available, please try again later"
-    session["connection"] = connection
+    
     return "User connected to WireGuard via connection: " + connection
     
 
