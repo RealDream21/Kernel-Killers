@@ -27,23 +27,42 @@
         
         </section>
     </main>
-
+    
     <footer>
         <p>&copy; 2023 Kernel Killers</p>
     </footer>
     <script>
         document.getElementById("connect-btn").addEventListener("click", function () {
             // Make an AJAX request to the /connect endpoint
+            var newDiv = document.createElement("div");
             fetch("/connect", { method: "POST" })
                 .then(response => response.text())
-                .then(message => console.log(message));
+                .then(message => newDiv.innerHTML = message)
+
+            var divToRemove = document.getElementById("disconnect-message");
+            if(divToRemove != null)
+                document.body.removeChild(divToRemove);
+
+            // adaugam div-ul in body
+            newDiv.id = "connect-message";
+            document.body.appendChild(newDiv);
         });
     
         document.getElementById("disconnect-btn").addEventListener("click", function () {
+            var newDiv = document.createElement("div");
             // Make an AJAX request to the /disconnect endpoint
             fetch("/disconnect", { method: "POST" })
                 .then(response => response.text())
-                .then(message => console.log(message));
+                .then(message => newDiv.innerHTML = message);
+
+            // adaugam div-ul in body
+            newDiv.id = "disconnect-message";
+            document.body.appendChild(newDiv);
+            
+            //daca e conectat atunci se deconecteaza si se sterg datele din divul connect
+            var divToRemove = document.getElementById("connect-message");
+            document.body.removeChild(divToRemove);
+
         });
     </script>
 </body>
