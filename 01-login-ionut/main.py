@@ -120,49 +120,49 @@ def disconnect_user():
 
 
 
-connections.append("[Interface]<br>\
+connections.append("<br>[Interface]<br>\
 PrivateKey = S72aqA3SUpxEqZUM4OMw9g3cOXxRM7WQtz9UQVXd4CM=<br>\
 Address = 192.168.100.2/24<br>\
 [Peer]<br>\
 PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I==<br>\
 AllowedIPs = 0.0.0.0/0<br>\
-Endpoint = 34.163.137.25:51820")
+Endpoint = 34.163.137.25:51820<br>")
 
-connections.append("[Interface]<br>\
-PrivateKey = IVs8itFO4NXBEpGWns4u8peoL8Wpr91eCPo3oSyp+HU=\
-Address = 192.168.101.2/24\
-[Peer]\
-PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=\
-AllowedIPs = 0.0.0.0/0\
-Endpoint = 34.163.137.25:51820")
+connections.append("<br>[Interface]<br>\
+PrivateKey = IVs8itFO4NXBEpGWns4u8peoL8Wpr91eCPo3oSyp+HU=<br>\
+Address = 192.168.101.2/24<br>\
+[Peer]<br>\
+PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=<br>\
+AllowedIPs = 0.0.0.0/0<br>\
+Endpoint = 34.163.137.25:51820<br>")
 
-connections.append("[Interface]<br>\
-PrivateKey = B9apoNGZm4ev3R994fXmu2yd+qGOv7B1CoUrVFWKRVI=\
-Address = 192.168.102.2/24\
-[Peer]\
-PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=\
-AllowedIPs = 0.0.0.0/0\
-Endpoint = 34.163.137.25:51820")
+connections.append("<br>[Interface]<br>\
+PrivateKey = B9apoNGZm4ev3R994fXmu2yd+qGOv7B1CoUrVFWKRVI=<br>\
+Address = 192.168.102.2/24<br>\
+[Peer]<br>\
+PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=<br>\
+AllowedIPs = 0.0.0.0/0<br>\
+Endpoint = 34.163.137.25:51820<br>")
 
-connections.append("[Interface]<br>\
-PrivateKey = xGfWpT2Fk5r7HZL8ucximmGzclW4ke2Xu9B3qxM9On8=\
-Address = 192.168.103.2/24\
-[Peer]\
-PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=\
-AllowedIPs = 0.0.0.0/0\
-Endpoint = 34.163.137.25:51820")
+connections.append("<br>[Interface]<br>\
+PrivateKey = xGfWpT2Fk5r7HZL8ucximmGzclW4ke2Xu9B3qxM9On8=<br>\
+Address = 192.168.103.2/24<br>\
+[Peer]<br>\
+PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=<br>\
+AllowedIPs = 0.0.0.0/0<br>\
+Endpoint = 34.163.137.25:51820<br>")
 
-connections.append("[Interface]<br>\
-PrivateKey = HaLNA/JdavSbVhoCaJ99cl99yb662AZ/f1k4vn8twSE=\
-Address = 192.168.104.2/24\
-[Peer]\
-PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=\
-AllowedIPs = 0.0.0.0/0\
-Endpoint = 34.163.137.25:51820")
+connections.append("<br>[Interface]<br>\
+PrivateKey = HaLNA/JdavSbVhoCaJ99cl99yb662AZ/f1k4vn8twSE=<br>\
+Address = 192.168.104.2/24<br>\
+[Peer]<br>\
+PublicKey = dvuW9BsRWOr7rzpq1HSnur1MQEaIWfPo9iHSO4faW0I=<br>\
+AllowedIPs = 0.0.0.0/0<br>\
+Endpoint = 34.163.137.25:51820<br>")
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
+    app.run(host="0.0.0.0", port=env.get("PORT", 5000))
 
 
 

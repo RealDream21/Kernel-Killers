@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VPN Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .dataContainer {
+          white-space: pre-line; /* or pre-wrap */
+        }
+      </style>
 </head>
 <body>
     <header>
@@ -38,7 +44,7 @@
             fetch("/connect", { method: "POST" })
                 .then(response => response.text())
                 .then(message => newDiv.innerHTML = message)
-
+            newDiv.classList.add('dataContainer');
             var divToRemove = document.getElementById("disconnect-message");
             if(divToRemove != null)
                 document.body.removeChild(divToRemove);
@@ -50,6 +56,7 @@
     
         document.getElementById("disconnect-btn").addEventListener("click", function () {
             var newDiv = document.createElement("div");
+            newDiv.classList.add('dataContainer');
             // Make an AJAX request to the /disconnect endpoint
             fetch("/disconnect", { method: "POST" })
                 .then(response => response.text())
